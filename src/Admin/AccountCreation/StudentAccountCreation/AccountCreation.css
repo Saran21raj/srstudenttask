@@ -1,0 +1,78 @@
+
+
+.admin-account-creation-outer-container{
+    display: flex;
+    flex-direction: column;
+    margin-left: 15px;
+    margin-top: 20px;
+}
+.admin-account-creation-label{
+    color:#06113C;
+    font-size: 18px;
+}
+
+.admin-account-creation-inner-container1{
+    display: flex;
+    align-items: center;
+    gap:15px;
+}
+.admin-account-creation-editbox{
+    height: 30px;
+    width: 150px;
+    border-radius: 8px;
+    padding-left: 10px;
+    border: 2px solid #06113C;
+}
+.admin-account-creation-button{
+    height: 40px;
+    width: 130px;
+    border-radius: 8px;
+    border: 1px solid #06113C;
+    background-color: #06113C;
+    font-size: 13px;
+    color: white;
+}
+.admin-records{
+    font-size: 30px;
+    font-weight: bolder;
+    color: #06113C;
+}
+.admin-account-creation-button:hover{
+    cursor: pointer;
+    box-shadow: 0 0 3px #06113C;
+}
+
+.admin-account-creation-inner-container2{
+    width: 80%;
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    overflow-y: scroll;
+}
+
+.accountCreation-table{
+    width: 60%;
+    color: #06113C;
+}
+td{
+    text-align: center;
+}
+
+@media(max-width:1000px){
+    .admin-account-creation-inner-container1{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap:15px;
+    }
+    .admin-account-creation-label{
+        margin: 0;
+    }
+    .admin-records{
+        font-size: 20px;
+        font-weight: bolder;
+    }
+    .accountCreation-table{
+        width: 100%;
+    }
+}

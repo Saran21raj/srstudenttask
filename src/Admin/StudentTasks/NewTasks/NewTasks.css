@@ -1,0 +1,25 @@
+
+.admin-new-tasks-outer{
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.admin-new-tasks-header{
+    width: 100%;
+    color:#06113C;
+    display: flex;
+    justify-content: center;
+}
+
+.admin-new-tasks-inner{
+    height: 100%;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: scroll;
+}
+.admin-no-new-tasks{
+    color: #06113C;
+}

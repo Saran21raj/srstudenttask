@@ -1,0 +1,21 @@
+.old-task-student-task-list-outer{
+    margin-top: 15px;
+    height: 60px;
+    width: 90%;
+    display: flex;
+    border: 2px solid #06113C;
+    border-radius: 8px;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width:850px) {
+    .old-task-student-task-list-outer{
+        height: 50px;
+    }
+}
+@media (max-width:600px) {
+    .old-task-student-task-list-outer{
+        height: 40px;
+    }
+}

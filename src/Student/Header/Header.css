@@ -1,0 +1,11 @@
+
+#navbar1{
+    width: 70%;
+    color: white;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.header-student-label{
+    font-size: 20px;
+}

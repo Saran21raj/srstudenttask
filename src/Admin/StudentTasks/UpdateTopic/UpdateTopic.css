@@ -1,0 +1,108 @@
+
+.update-topic-outer{
+    width: 100vw;
+}
+.update-header{
+    width:100%;
+    display: flex;
+    justify-content: center;
+    color: #06113C;
+}
+
+.update-date-div, .update-topic-div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 20px;
+    color: #06113C;
+    gap:20px
+}
+.update-topic-editbox{
+    height: 35px;
+    width: 520px;
+    border-radius: 8px;
+    padding-left: 15px;
+    color: #06113C;
+    border: 2px solid #06113C;
+}
+.update-topic-date{
+    height: 25px;
+    width: 110px;
+    border-radius: 8px;
+    padding-left: 15px;
+    color: #06113C;
+    border: 2px solid #06113C;
+}
+.update-topic-button{
+    height: 35px;
+    width: 100px;
+    background-color: #06113C;
+    border: 0;
+    border-radius: 8px;
+    color: white;
+    margin-left: 150px;
+    font-size: 15px;
+}
+.update-topic-button:hover{
+    box-shadow: 0 0 8px #06113C;
+    cursor: pointer;
+}
+.update-button-div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+}
+.update-err{
+    color: #F55353;
+}
+.update-date-div-inner, .update-date-div-inner-err{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+@media (max-width:700px) {
+    .update-date-div{
+        flex-direction: column;
+        align-items: flex-start;
+        gap:5px;
+    }
+    .update-topic-editbox{
+        height: 35px;
+        width: 300px;
+        border-radius: 8px;
+        padding-left: 15px;
+        color: #06113C;
+        border: 2px solid #06113C;
+    }
+}
+@media (max-width:450px) {
+    .update-topic-editbox{
+        height: 35px;
+        width: 190px;
+        border-radius: 8px;
+        padding-left: 15px;
+        color: #06113C;
+        border: 2px solid #06113C;
+    }
+    .update-date-side-header{
+        font-size: 18px;
+    }
+    .update-date-div-inner-err{
+        flex-direction: column;
+        gap:5px;
+        align-items: flex-start;
+    }
+    .update-err{
+        margin-bottom: 10px;
+        margin-top: 0;
+        font-size: 14px;
+    }
+    .update-topic-button{
+        margin-left: 80px;
+        font-size: 15px;
+    }
+    .update-button-div{
+        margin-top: 20px;
+    }
+}

@@ -1,0 +1,210 @@
+.outerbox{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+}
+
+.innerbox-left{
+    height: 100vh;
+    width: 50%;
+    background-color: #06113C;
+}
+.mobile-heading{
+    display: none;
+}
+.title{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.innerbox-left h1{
+    color: #F55353;
+}
+
+.innerbox-right{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #F55353;
+
+}
+
+.right-container{
+    height: 70%;
+    width: 60%;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #FFFFFF;
+}
+
+.loginInnerContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:10px;
+}
+.login-editbox{
+    height: 25px;
+    width: 250px;
+    padding-left: 5px;
+    border: 0;
+    border-bottom: 0.5px solid #06113C;
+}
+.login-label-err{
+    margin: 2px;
+    color: #F55353;
+}
+.login-label{
+    color: #06113C;
+}
+.login-button{
+    height: 40px;
+    width: 100px;
+    background-color: #F55353;
+    color: white;
+    border-radius: 10px;
+    border: 0;
+}
+.login-button:hover{
+    cursor: pointer;
+    box-shadow: 0 0 8px #F55353;
+}
+.test-values{
+    color: #06113C;
+    font-size: 15px;
+    font-weight: 500;
+    margin: 2px;
+}
+.test-value-heading{
+    text-decoration: underline;
+    margin: 2px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    color:#06113C;
+    font-size: 15px;
+    font-weight: 500;
+    border-radius: 10px;
+    border: 0;
+}
+.test-value-heading:hover{
+    cursor: pointer;
+}
+.student-login-label{
+    margin: 5px;
+    color: #06113C;
+}
+p[disabled] {
+    pointer-events: none;
+    opacity: 0.7%;
+}
+h4[disabled] {
+    pointer-events: none;
+    opacity: 0.7%;
+}
+
+
+@media(max-width:1000px){
+    .login-label{
+        font-size: 20px;
+    }
+    .login-editbox{
+        width: 200px;
+    }
+    .login-label-err{
+        font-size: 12px;
+    }
+    .login-button{
+        height: 30px;
+        width: 80px;
+    }
+    .test-value-button{
+        width: 120px;
+        font-size: 12px;
+    }
+}
+@media(max-width:800px){
+    .right-container{
+        height: 70%;
+        width: 70%;
+    }
+    .login-label{
+        font-size: 20px;
+    }
+    .login-editbox{
+        width: 180px;
+    }
+    .login-label-err{
+        font-size: 12px;
+    }
+    .login-button{
+        height: 30px;
+        width: 80px;
+    }
+    .test-value-button{
+        width: 120px;
+        font-size: 12px;
+    }
+}
+@media (max-width:650px) {
+    .outerbox{
+        flex-direction: column;
+    }
+    .innerbox-left{
+        display: none;
+    }
+    .innerbox-right{
+        height: 100vh;
+        width: 100%;
+        display: flex;
+        flex-direction:column;
+        justify-content: center;
+        align-items: center;
+        background-color: #F55353;
+    }
+    .right-container{
+        height: 70%;
+        width: 60%;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #FFFFFF;
+    }
+    .mobile-heading{
+        display:flex;
+    }
+    .mobile-title{
+        font-size: 20px;
+        color: #06113C;
+        font-weight: bold;
+    }
+}
+
+@media (max-width:400px) {
+    .right-container{
+        width: 80%;
+    }
+    .mobile-title{
+        font-size: 18px;
+        color: #06113C;
+        font-weight: bold;
+    }
+}
+@media (max-width:350px) {
+    .right-container{
+        width: 80%;
+    }
+    .mobile-title{
+        font-size: 16px;
+        color: #06113C;
+        font-weight: bold;
+    }
+}
