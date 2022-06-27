@@ -1,6 +1,7 @@
 import {useState} from 'react';
 import Axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
+import Loader from '../../loader/Loader';
 
 
 function StudentLogin(){
@@ -16,12 +17,18 @@ function StudentLogin(){
         setMisMatchErr(true);
         setStudentLoginValues(prevState=>({...prevState,[name]:value}))
     }
+    const [loginErr,setLoginErr]=useState("Username & Password Doesn't Match")
+    const [isLoading,setIsLoading]=useState(true);
     const handleSubmit =(event)=>{
+        if(studentLoginValues.userName!==''&&studentLoginValues.password!=='')
+        {
+        setIsLoading(false);
         event.preventDefault();
             //Axios request to Login into the user Account
             Axios.post(loginUrl,{
                 userName:studentLoginValues.userName,
                 password:studentLoginValues.password}).then((response)=>{
+                    setIsLoading(true);
                     const studentToken=response.data.token;
                     const regNo=response.data.regNo;
                     const studentName=response.data.name;
@@ -33,10 +40,21 @@ function StudentLogin(){
                         navigate("/student/intro");
                     }
                 }).catch((err)=>{
+                    setIsLoading(true);
+                    if(err.response.status===400){
+                        setLoginErr("User Doesn't Exits");
+                        setMisMatchErr(false);
+                    }
                     if(err.response.status===403){
+                        setLoginErr("Username & Password Doesn't Match");
                         setMisMatchErr(false);
                     }
             })
+        }
+        else{
+            setLoginErr("Please Fill details");
+            setMisMatchErr(false);
+        }
     };
     const handleTestValues=()=>{
         if(testValue){
@@ -77,8 +95,11 @@ function StudentLogin(){
                                 className='login-editbox'
                                 placeholder='Password'
                                 onChange={handleChange}/>
-                            <h4 className='login-label-err'disabled={misMatchErr}>Username & Password Doesn't Match</h4>
+                            <h4 className='login-label-err'disabled={misMatchErr}>{loginErr}</h4>
                             <button className='login-button' onClick={handleSubmit}>Login</button>
+                            <div className='loader-login' disabled={isLoading}>
+                                <Loader/>
+                            </div>
                             <Link to="/admin/login" className='student-login-label'> <h4 className='student-login-label'>Admin Login</h4></Link>
                             <div className='login-test-values'>
                                 <p className='test-value-heading' onClick={handleTestValues}>Show test values</p>

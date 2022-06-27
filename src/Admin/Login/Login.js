@@ -2,6 +2,7 @@ import {useState} from 'react';
 import Axios from 'axios';
 import "./Login.css";
 import { Link, useNavigate } from 'react-router-dom';
+import Loader from '../../loader/Loader';
 
 function AdminLogin(){
     const [adminLoginValues,setAdminLoginValues]=useState({
@@ -16,12 +17,18 @@ function AdminLogin(){
         setMisMatchErr(true);
         setAdminLoginValues(prevState=>({...prevState,[name]:value}))
     }
-    const handleSubmit =(event)=>{ 
+    const [loginErr,setLoginErr]=useState("Username & Password Doesn't Match")
+    const [isLoading,setIsLoading]=useState(true);
+    const handleSubmit =(event)=>{
+        if(adminLoginValues.userName!==''&& adminLoginValues.password!=='')
+        {
+        setIsLoading(false);
         event.preventDefault();
             // Axios request to Login into the user Account
             Axios.post(loginUrl,{
                 userName:adminLoginValues.userName,
                 password:adminLoginValues.password}).then((response)=>{
+                    setIsLoading(true);
                     const adminToken=response.data.token;
                     const userName=response.data.userName;
                     const name=response.data.name;
@@ -32,10 +39,23 @@ function AdminLogin(){
                     if(response.status===200){
                         navigate("/admin/intro");
                     }
-                    console.log(response);
                 }).catch((err)=>{
+                    setIsLoading(true);
+                    if(err.response.status===400){
+                        setLoginErr("User Doesn't Exits");
+                        setMisMatchErr(false);
+                    }
+                    if(err.response.status===403){
+                        setLoginErr("Username & Password Doesn't Match");
+                        setMisMatchErr(false);
+                    }
                     console.log(err);
             })
+        }
+        else{
+            setLoginErr("Please Fill details");
+            setMisMatchErr(false);
+        }
     };
     const handleTestValues=()=>{
         if(testValue){
@@ -76,9 +96,12 @@ function AdminLogin(){
                                 className='login-editbox'
                                 placeholder='Password'
                                 onChange={handleChange}/>
-                            <h4 className='login-label-err'disabled={misMatchErr}>Username & Password Doesn't Match</h4>
+                            <h4 className='login-label-err'disabled={misMatchErr}>{loginErr}</h4>
                             <button className='login-button' onClick={handleSubmit}>Login</button>
-                            <Link to="/student/login" className='student-login-label'> <h4 className='student-login-label'>Student Login</h4></Link>
+                            <div className='loader-login' disabled={isLoading}>
+                                <Loader/>
+                            </div>
+                            <Link to="/student/login" className='student-login-label'><h4 className='student-login-label'>Student Login</h4></Link>
                             <div className='login-test-values'>
                                 <p className='test-value-heading' onClick={handleTestValues}>Show test values</p>
                                 <p className='test-values' disabled={testValue}>Username: test1@123</p>
